@@ -1,0 +1,24 @@
+GET     /                         	controllers.ApplicationController.index()
+
+GET     /contracts                  controllers.ContractController.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+GET     /contracts/new          	controllers.ContractController.create()
+POST    /contracts                  controllers.ContractController.save()
+GET     /contracts/:id              controllers.ContractController.edit(id:Long)
+POST    /contracts/:id              controllers.ContractController.update(id:Long)
+POST    /contracts/:id/delete       controllers.ContractController.delete(id:Long)
+
+GET     /institutions             	controllers.InstitutionController.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+GET     /institutions/new          	controllers.InstitutionController.create()
+POST    /institutions             	controllers.InstitutionController.save()
+GET     /institutions/:id         	controllers.InstitutionController.edit(id:Long)
+POST    /institutions/:id      		controllers.InstitutionController.update(id:Long)
+POST    /institutions/:id/delete	controllers.InstitutionController.delete(id:Long)
+
+GET     /persons                  	controllers.PersonController.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+GET     /persons/new           	  	controllers.PersonController.create()
+POST    /persons                  	controllers.PersonController.save()
+GET     /persons/:id              	controllers.PersonController.edit(id:Long)
+POST    /persons/:id              	controllers.PersonController.update(id:Long)
+POST    /persons/:id/delete       	controllers.PersonController.delete(id:Long)
+
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

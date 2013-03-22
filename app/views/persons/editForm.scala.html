@@ -1,0 +1,35 @@
+@(id: Long, personForm: Form[models.Person])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main {
+    
+    <h1>Edit person</h1>
+    
+    @form(routes.PersonController.update(id)) {
+        
+        <fieldset>
+        
+            @inputText(personForm("name"), '_label -> "Person name")
+            @inputText(personForm("birthday"), '_label -> "Birthday")
+            @inputText(personForm("address"), '_label -> "Address")
+            @inputText(personForm("street"), '_label -> "Street")
+            @inputText(personForm("cp"), '_label -> "Code Postale")
+            @inputText(personForm("city"), '_label -> "City")
+        
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Save this person" class="btn primary"> or 
+            <a href="@routes.PersonController.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+    @form(routes.PersonController.delete(id), 'class -> "topRight") {
+        <input type="submit" value="Delete this person" class="btn danger">
+    }
+    
+}
